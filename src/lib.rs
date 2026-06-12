@@ -340,6 +340,8 @@ pub enum ReportField {
 pub struct Report {
     /// The (optional) report id associated with the report.
     pub report_id: Option<ReportId>,
+    /// The (optional) usage id associated with the report.
+    pub usage: Option<Usage>,
     /// The size in bits of the report.
     pub size_in_bits: usize,
     /// The list of fields in the report.

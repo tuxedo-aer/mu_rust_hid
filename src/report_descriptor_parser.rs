@@ -455,7 +455,9 @@ impl ReportDescriptorParser {
                 }
             }
 
-            reports.push(Report { report_id: *id, size_in_bits: bit_position as usize, fields });
+            let usage = report_data.first().and_then(|d| d.member_of.get(1)).map(|c| c.usage);
+
+            reports.push(Report { report_id: *id, usage, size_in_bits: bit_position as usize, fields });
         }
 
         (reports, bad_reports)
